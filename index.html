@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>한화첨단소재 HTML 쇼케이스</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">HTML Submission Showcase</p>
+        <h1>한화첨단소재 HTML 쇼케이스</h1>
+        <p class="hero-copy">
+          다 함께 쇼케이스할 수 있도록 이름과 폴더명을 입력해 주세요.
+        </p>
+        <p class="privacy-note">
+          업로드한 HTML은 서버에 저장되지 않으며 현재 브라우저 세션에서만 표시됩니다.
+        </p>
+      </header>
+
+      <main class="app-layout" aria-label="HTML 쇼케이스 제출 앱">
+        <section class="left-panel" aria-labelledby="submit-heading">
+          <div class="panel-card submit-card">
+            <div>
+              <p class="section-kicker">Submit</p>
+              <h2 id="submit-heading">HTML 제출</h2>
+            </div>
+
+            <form id="submission-form" class="submission-form" novalidate>
+              <label for="student-name">
+                수강생 이름
+                <input
+                  id="student-name"
+                  name="studentName"
+                  type="text"
+                  autocomplete="name"
+                  placeholder="예: 김한화"
+                  required
+                />
+              </label>
+
+              <label for="folder-name">
+                폴더/그룹명
+                <input
+                  id="folder-name"
+                  name="folderName"
+                  type="text"
+                  placeholder="예: 1조, 인터랙션 과제"
+                  required
+                />
+              </label>
+
+              <label for="html-file" class="file-label">
+                .html 파일 업로드
+                <input
+                  id="html-file"
+                  name="htmlFile"
+                  type="file"
+                  accept=".html,text/html"
+                  required
+                />
+              </label>
+
+              <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+
+              <button type="submit" class="submit-button">제출하기</button>
+            </form>
+          </div>
+
+          <section class="panel-card" aria-labelledby="folders-heading">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Folders</p>
+                <h2 id="folders-heading">폴더 탭</h2>
+              </div>
+            </div>
+            <div id="folder-tabs" class="folder-tabs" role="tablist" aria-label="제출 폴더 목록">
+              <button class="folder-tab active" type="button" role="tab" aria-selected="true" data-folder="all">
+                전체
+              </button>
+            </div>
+          </section>
+
+          <section class="panel-card submissions-panel" aria-labelledby="submissions-heading">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Gallery</p>
+                <h2 id="submissions-heading">제출 카드 목록</h2>
+              </div>
+              <span id="submission-count" class="count-badge">0개</span>
+            </div>
+            <div id="submission-list" class="submission-list" aria-live="polite">
+              <div class="empty-state">
+                <strong>아직 제출물이 없습니다.</strong>
+                <span>왼쪽 양식을 채우고 HTML 파일을 업로드해 보세요.</span>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section class="right-panel" aria-labelledby="preview-heading">
+          <div class="panel-card preview-card">
+            <div class="section-header preview-header">
+              <div>
+                <p class="section-kicker">Preview</p>
+                <h2 id="preview-heading">선택된 HTML 렌더링 미리보기</h2>
+              </div>
+              <span id="preview-meta" class="preview-meta">선택 없음</span>
+            </div>
+            <div class="preview-frame-wrap">
+              <iframe
+                id="html-preview"
+                title="선택된 HTML 제출물 미리보기"
+                sandbox
+              ></iframe>
+              <div id="preview-placeholder" class="preview-placeholder">
+                제출 카드를 클릭하면 이곳에 HTML이 안전한 sandbox iframe으로 표시됩니다.
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
